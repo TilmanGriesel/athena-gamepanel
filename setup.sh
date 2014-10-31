@@ -46,7 +46,7 @@ echo "Clean up ..."
 skill -KILL -u $USER_NAME &>> $LOG # Kill user session
 userdel $USER_NAME &>> $LOG # Delete user
 
-echo "Creating  user ..."
+echo "Creating user ..."
 groupadd $USER_GROUP
 useradd -m -p $USER_PASS $USER_NAME -g $USER_GROUP &>> $LOG # Add user to the system
 
