@@ -5,10 +5,10 @@ A project to create and manage gameservers.
 Work in progress ...
 
 Planned features:
-* Game modules
+* Modular
 * Web Interface
 * Easy to use & install
-* Integrated module update
-* Optional Out of the box VM
+* Integrated updater
+* Optional VM
 
 I started this project because it was always a pain to manage my gameservers on LAN partys.
