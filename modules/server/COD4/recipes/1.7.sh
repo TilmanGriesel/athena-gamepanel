@@ -73,4 +73,4 @@ chmod -R 750 $MODULE_PATH
 chown -R :$USER_GROUP main
 chmod -R 750 main
 
-echo Done. Created Server: $MODULE_NAME
+echo "Done. Created Server: "$MODULE_NAME
