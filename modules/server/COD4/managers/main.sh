@@ -25,7 +25,7 @@ SERVER_NAME=$1
 USER_NAME="athena-gamepanel"
 USER_GROUP="athena-gamepanel"
 
-BASE_PATH="/opt/athena"
+BASE_PATH="/opt/athena-gamepanel"
 MODULE_PATH=$BASE_PATH"/modules/server/"$MODULE_NAME
 SOURCE_PATH=$MODULE_PATH"/sources/1.7"
 TARGET_PATH=$BASE_PATH"/_SERVER/"$SERVER_NAME
