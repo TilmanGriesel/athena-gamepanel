@@ -1,4 +1,4 @@
-athena-gamepanel
-================
-
-Open Source Minimalistic Modular Game Control Panel
+Athena Gamepanel
+----
+A project to create and manage gameservers.
+Work in progress ...
