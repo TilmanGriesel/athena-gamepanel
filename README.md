@@ -1,7 +1,6 @@
 
-![alt tag](http://rocketengine.io/download/athena_gamepanel_logo.png)
+![](http://rocketengine.io/download/athena_gamepanel_logo.png)
 
-----
 A project to create and manage gameservers.
 
 Work in progress ...
