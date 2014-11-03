@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block body %}
+          <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Servers</h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+            <div id="servers" class="row">
+            </div>
+            <!-- /.row -->
+
+            {% raw %}
+            <script id="server-control-template" type="text/x-handlebars-template">
+                
+                {{#servers}}
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel {{#if online}}panel-green{{else}}panel-red{{/if}}">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa {{#if online}}fa-check{{else}}fa-minus-circle{{/if}} fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{servername}}</div>
+                                    <div>{{status}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <div class="pull-left">
+                                    {{#if online}}
+                                        <button type="button" class="btn btn-outline btn-success">Log</button>
+                                        <button type="button" class="btn btn-outline btn-success">Stop</button>
+                                    {{else}}
+                                        <button type="button" class="btn btn-outline btn-danger">Settings</button>
+                                        <button type="button" class="btn btn-outline btn-danger">Log</button>
+                                        <button type="button" class="btn btn-outline btn-danger">Start</button>
+                                    {{/if}}
+                                    
+                                </div>
+                                <!--<span class="pull-right"><i class="fa fa-info-circle" style="font-size: 24px; line-height: 38px;"></i></span> -->
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {{/servers}}
+
+            </script>
+            {% endraw %}
+
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}

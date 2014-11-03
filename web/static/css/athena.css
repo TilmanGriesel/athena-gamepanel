@@ -1,0 +1,32 @@
+
+.huge {
+    font-size: 20px;
+}
+
+.panel-footer {
+    border: none;
+    background-color: #fff;
+}
+
+.navbar-default {
+    background-color: #28303a;
+    color: #fff;
+}
+
+.navbar-default .navbar-brand {
+    color: #fff;
+}
+
+.btn-outline {
+	transition: all .1s;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success.focus, .btn-success:active, .btn-success.active, .open>.dropdown-toggle.btn-success {
+	background-color: #449d44;
+	border-color: #449d44;
+}
+
+.btn-danger:hover, .btn-danger:focus, .btn-danger.focus, .btn-danger:active, .btn-danger.active, .open>.dropdown-toggle.btn-danger {
+	background-color: #d9534f;
+	border-color: #d9534f;
+}
