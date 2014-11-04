@@ -19,28 +19,78 @@
 // Authors:
 //     Tilman Griesel - rocketengine.io
 
+SERVERLIST_REFRESH_INTERVAL = 5000
+
 $(function() {
-    
     // Compile handlebar templates
     var source   = $("#server-control-template").html();
-    var template = Handlebars.compile(source);  
+    var template = Handlebars.compile(source);
+
+    refreshServers();
+
+    function refreshServers() {
+       setTimeout(refreshServers, SERVERLIST_REFRESH_INTERVAL);
+       getServers();
+    }
 
     // Get the server list
-    // ToDo: Error handling
-    $.get("/api/v1/server/list")
-        .done(function(data) {
-            var servers = [];
-            for(var i = 0; i < data.length; i++) {
-                servers.push({ servername: data[i].info.server.name, status:"none", online: false, error: false });
-            }
-            var data = {servers: servers};
+    function getServers() {
+        console.log("Refreshing server list ...");
+        var jqxhr = $.get("/api/v1/server/list", function() {})
+          .done(function(data) {
+            console.log(data);
+            // Create data provider
+            // (maybe the data could be the data provider in the future)
+            var data = {servers: data};
             $("#servers").html(template(data));
-        });
+            registerEventListeners();
+          })
+          .fail(function() {
+            swal({title: "Oops...", text: "Unable to refresh the server list!", type: "error", timer: 1200});
+          })
+          .always(function() {
+          });
+        jqxhr.always(function() {});        
+    }
 
-    // Server actions
-    $( "#action" ).click(function() {
-        $.post("/api/v1/server/COD4DIRTY/start", {value:"none"}, function(data) {
-           alert(data.value);
+    function registerEventListeners() {
+        // Remove previous event listeners
+        $("button.server-start").unbind("click");
+        $("button.server-stop").unbind("click");
+        
+        //Register event listeners
+        // Server actions
+        $("button.server-start").click(function() {
+            var closestServerTools = $(this).closest(".server-tools")
+            var serverID = $(closestServerTools).data("serverid");
+            var serverName = $(closestServerTools).data("servername");
+            $.post("/api/v1/server/" + serverID + "/start", {value:serverID}, function(data) {
+                if(data.type == "success") {
+                    swal({title: "Server is starting", text: "Please wait a few seconds to complete!", type: "success", timer: 3500});
+                    refreshServers();
+                }
+                else {
+                    swal({title: data.message, text: "Unable to start " + serverName + " (#" + data.code + ")", type: "error"});
+                }
+            });
         });
-    });
+        $("button.server-stop").click(function() {
+            var closestServerTools = $(this).closest(".server-tools")
+            var serverID = $(closestServerTools).data("serverid");
+            var serverName = $(closestServerTools).data("servername");
+            swal(
+                {title: "Are you sure?", text: "This operation will stop the server immediately!", type: "warning", showCancelButton: true, confirmButtonColor: "#DD6B55", confirmButtonText: "Yes, stop!", closeOnConfirm: false },
+                function(){
+                    $.post("/api/v1/server/" + serverID + "/stop", {value:serverID}, function(data) {
+                        if(data.type == "success") {
+                            swal({title: "Server is stopping", text: "Please wait a few seconds to complete!", type: "success", timer: 3500});
+                            refreshServers();
+                        }
+                        else {
+                            swal({title: data.message, text: "Unable to stop " + serverName + " (#" + data.code + ")", type: "error"});
+                        }
+                    });
+                });
+        });  
+    }
 });

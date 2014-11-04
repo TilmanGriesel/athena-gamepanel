@@ -1,0 +1,13 @@
+{
+  "name": "COD4",
+  "description": "Stock Call of Duty 4: Modern Warfare module",
+  "main": "cod4_lnxded",
+  "version": "0.1",
+  "author": "Tilman Griesel",
+  "support": "http://www.rocketengine.io",
+  "product": {
+    "name": "Call of Duty 4: Modern Warfare",
+    "publisher": "Activision Publishing, Inc",
+    "studio": "Infinity Ward, Inc."
+  }
+}

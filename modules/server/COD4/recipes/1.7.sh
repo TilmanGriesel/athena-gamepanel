@@ -113,7 +113,7 @@ mkdir main/mods
 # ------------------------------
 
 # Write info JSON (not beautiful, but good enough for now)
-printf '{"module":{"name":"%s","version":"%s","author":"%s","support":"%s"},"server":{"name":"%s"},"product":{"name":"%s","publisher":"%s","studio":"%s","version":"%s"}}\n' "$MODULE_NAME" "$MODULE_VERSION" "$MODULE_AUTHOR" "$MODULE_SUPPORT" "$SERVER_NAME" "$PRODUCT_NAME" "$PRODUCT_PUBLISHER" "$PRODUCT_STUDIO" "$PRODUCT_VERSION" > $TARGET_PATH"/info.json"
+printf '{"module":{"name":"%s","version":"%s","author":"%s","support":"%s"},"server":{"name":"%s","id":"%s","description":"%s"},"product":{"name":"%s","publisher":"%s","studio":"%s","version":"%s"}}\n' "$MODULE_NAME" "$MODULE_VERSION" "$MODULE_AUTHOR" "$MODULE_SUPPORT" "$SERVER_NAME" "$SERVER_HASH" "none" "$PRODUCT_NAME" "$PRODUCT_PUBLISHER" "$PRODUCT_STUDIO" "$PRODUCT_VERSION" > $TARGET_PATH"/info.json"
 
 # ------------------------------
 # Permissions

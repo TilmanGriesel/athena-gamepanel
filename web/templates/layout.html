@@ -29,6 +29,9 @@
     <!-- Morris Charts CSS -->
     <link rel=stylesheet href="{{ url_for('static', filename='css/plugins/morris.css') }}">
 
+    <!-- sweet-alert CSS -->
+    <link rel=stylesheet href="{{ url_for('static', filename='css/plugins/sweet-alert.css') }}">
+
     <!-- Custom Fonts -->
     <link rel=stylesheet href="{{ url_for('static', filename='font-awesome-4.1.0/css/font-awesome.min.css') }}">
 
@@ -97,10 +100,14 @@
     <script src={{ url_for('static', filename='js/plugins/morris/morris.min.js') }}></script>
     <script src={{ url_for('static', filename='js/plugins/morris/morris-data.js') }}></script>-->
 
+     <!-- sweet-alert JavaScript -->
+    <script src={{ url_for('static', filename='js/plugins/sweet-alert/sweet-alert.min.js') }}></script>
+
     <!-- Custom Theme JavaScript -->
     <script src={{ url_for('static', filename='js/sb-admin-2.js') }}></script>
 
     <script src={{ url_for('static', filename='js/handlebars-v2.0.0.js') }}></script>
+
     <script src={{ url_for('static', filename='js/athena.js') }}></script>
     
     {% block scripts %}{% endblock %}

@@ -17,28 +17,28 @@
                 
                 {{#servers}}
                 <div class="col-lg-3 col-md-6">
-                    <div class="panel {{#if online}}panel-green{{else}}panel-red{{/if}}">
+                    <div class="panel {{#if active}}panel-green{{else}}panel-red{{/if}}">
                         <div class="panel-heading">
                             <div class="row">
                                 <div class="col-xs-3">
-                                    <i class="fa {{#if online}}fa-check{{else}}fa-minus-circle{{/if}} fa-5x"></i>
+                                    <i class="fa {{#if active}}fa-check{{else}}fa-minus-circle{{/if}} fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">{{servername}}</div>
-                                    <div>{{status}}</div>
+                                    <div class="huge">{{info.server.name}}</div>
+                                    <div>Online: {{active}}</div>
                                 </div>
                             </div>
                         </div>
                         <a href="#">
-                            <div class="panel-footer">
+                            <div class="panel-footer server-tools" data-serverid="{{id}}" data-servername="{{info.server.name}}">
                                 <div class="pull-left">
-                                    {{#if online}}
+                                    {{#if active}}
                                         <button type="button" class="btn btn-outline btn-success">Log</button>
-                                        <button type="button" class="btn btn-outline btn-success">Stop</button>
+                                        <button type="button" class="server-stop btn btn-outline btn-success">Stop</button>
                                     {{else}}
                                         <button type="button" class="btn btn-outline btn-danger">Settings</button>
                                         <button type="button" class="btn btn-outline btn-danger">Log</button>
-                                        <button type="button" class="btn btn-outline btn-danger">Start</button>
+                                        <button type="button" class="server-start btn btn-outline btn-danger">Start</button>
                                     {{/if}}
                                     
                                 </div>
